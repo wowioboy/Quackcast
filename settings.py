@@ -2,6 +2,14 @@
 import os.path
 import socket
 PROJECT_DIR = os.path.dirname(__file__)
+    
+host = socket.gethostname()
+host_dir_map = {'Lawrence-Leachs-Mac-Pro.local': 'drunkduck.',
+                'Administrators-iMac-3.local': 'quackcast.',
+                'server': ''
+                }
+# ALTER THE SERVERNAME NAME TO BE CORRECT FOR THE SERVER VARIABLE ABOVE
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,7 +20,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if socket.gethostname() == 'Lawrence-Leachs-Mac-Pro.local':
+if host in ['Lawrence-Leachs-Mac-Pro.local', 'Administrators-iMac-3.local']:
     DATABASES = {
        'default': {
            'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -23,7 +31,7 @@ if socket.gethostname() == 'Lawrence-Leachs-Mac-Pro.local':
            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
         }
     }
-    MEDIA_ROOT = '/Users/zeus/Sites/django/drunkduck/media/'
+#    MEDIA_ROOT = '/Users/zeus/Sites/django/drunkduck/media/'
 else:
     DATABASES = {
        'default': {
@@ -35,7 +43,6 @@ else:
            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
         }
     }
-    MEDIA_ROOT = '/home/drunkduck/public_html/podcast/media/'
 
 
 # Local time zone for this installation. Choices can be found here:
@@ -96,10 +103,11 @@ MIDDLEWARE_CLASSES = (
     'pagination.middleware.PaginationMiddleware',
 )
 
-if socket.gethostname() == 'Lawrence-Leachs-Mac-Pro.local':
-    ROOT_URLCONF = 'drunkduck.urls'
-else:
-    ROOT_URLCONF = 'urls'	
+#if socket.gethostname() == 'Lawrence-Leachs-Mac-Pro.local':
+#    ROOT_URLCONF = 'drunkduck.urls'
+#else:
+#    ROOT_URLCONF = 'urls'	
+ROOT_URLCONF = host_dir_map[host] + 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -119,14 +127,15 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'pagination',
     'tagging',
-    'tagging_autocomplete',    
+    'tagging_autocomplete',
+    host_dir_map[host] + 'podcast'
 )
-if socket.gethostname() == 'Lawrence-Leachs-Mac-Pro.local':
-    INSTALLED_APPS += (
-        'drunkduck.podcast',
-    )
-else:
-    INSTALLED_APPS += (
-        'podcast',
-    )
+#if socket.gethostname() == 'Lawrence-Leachs-Mac-Pro.local':
+#    INSTALLED_APPS += (
+#        'drunkduck.podcast',
+#    )
+#else:
+#    INSTALLED_APPS += (
+#        'podcast',
+#    )
 

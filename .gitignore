@@ -1,4 +1,8 @@
 .DS_STORE
 *.pyc
+*.db
 media/thumbs/**/*
 media/audio/**/*
+.project
+.pydevproject
+src/
