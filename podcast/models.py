@@ -14,8 +14,8 @@ class Podcast(models.Model):
     leadin = models.TextField("Lead-in Copy",blank=True,null=True)
     detail = models.TextField("Detail Copy",blank=True,null=True)
     pub_date = models.DateTimeField('Published Date',blank=True,null=True)
-    url = models.CharField("CDN URL (Internal Use)",max_length=200,blank=True,null=True)
-    url_itunes = models.CharField("iTunes URL",max_length=200,blank=True,null=True)
+    url = models.URLField("CDN URL (Internal Use)", max_length=200,blank=True,null=True)
+    url_itunes = models.URLField("iTunes URL",max_length=200,blank=True,null=True)
     show_file = models.FileField(upload_to="audio",blank=True,null=True)
     tags = TagAutocompleteField('Tags',help_text='Keywords to help searching for content.')
     slug = models.SlugField(

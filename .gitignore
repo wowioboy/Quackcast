@@ -1,5 +1,7 @@
 .DS_STORE
 *.pyc
+*.pyo
+*.swp
 *.db
 media/thumbs/**/*
 media/audio/**/*
