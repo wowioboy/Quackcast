@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+<title>Drunk Duck</title> 
+<!-- BLUEPRINT --> 
+<link rel="stylesheet" href="/media/css/blueprint/screen.css" type="text/css" media="screen, projection"> 
+<link rel="stylesheet" href="/media/css/blueprint/gutterless.css" type="text/css" media="screen, projection"> 
+<link rel="stylesheet" href="/media/css/blueprint/print.css" type="text/css" media="print">    
+<!--[if IE]><link rel="stylesheet" href="/media/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+<style> 
+body {    
+    background-color:rgb(9,153,68);
+    background-image:url('/media/images/bg-bubbles.jpg'); 
+    background-repeat:no-repeat;
+    background-position:center top;
+}
+    
+ .tooltip {
+      z-index:9999999;
+     background-color:#fff;
+      border: 2px solid #999;
+      color:#000;
+      max-width:300px;
+      -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border:5px solid rgb(69,180,185);
+  padding:10px;
+ }
+ 
+ .tooltip img {
+  position:absolute;
+  top:-14px;
+  margin-left:50%;
+  left:-12px;
+  
+ }
+</style> 
+<!-- JQUERY --> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery-1.4.2.min.js"></script> 
+ 
+<!-- JQUERY TOOLS (JQUERY) --> 
+<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js"></script> 
+ 
+<!-- JQUERY UI (JQUERY) --> 
+<link href="{{ MEDIA_URL }}css/jquery/start/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" /> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery-ui-1.8.5.custom.min.js"></script> 
+ 
+<!-- CYCLE (JQUERY) --> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/cycle/jquery.cycle.all.js"></script> 
+ 
+<!-- HTML AREA (JQUERY, JQUERY UI) --> 
+<link rel="Stylesheet" type="text/css" href="{{ MEDIA_URL }}js/jquery/jhtmlarea/jHtmlArea.css" /> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jhtmlarea/jHtmlArea-0.7.0.min.js"></script> 
+ 
+<!-- JQUERY FORM (JQUERY) --> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/form.js"></script> 
+ 
+<!-- GOOGLE FONT --> 
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css" /> 
+ 
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/custom.css" type="text/css" media="screen, projection, print"> 
+<link href='{{ MEDIA_URL }}css/layout.css' rel='stylesheet' type="text/css"> 
+<link href='{{ MEDIA_URL }}css/global.css' rel='stylesheet' type="text/css"> 
+<script type="text/javascript"> 
+$(document).ready(function(){
+  $('.tooltip').live('mouseenter', function(){
+    $(this).hide(); 
+  });
+  $('*[title]').tooltip({
+    position: "bottom center"
+  });
+});
+</script> 
+ 
+</head> 
+<body> 
+ 
+ 
+<div class="container"> 
+    <div class="span-96 green rounded" style="position:relative;padding-top:10px"> 
+                <div class="span-23" style="height:150px"> 
+            <a href="/" style="display:block;background-image:url('{{ MEDIA_URL }}images/drunkduck-logo.png');background-repeat:no-repeat;width:268px;height:187px;position:relative;left:-38px;top:-28px;z-index:5;"> 
+                
+            </a> 
+            
+        </div> 
+        <div class="span-73 border-1 rounded green" style="position:relative;height:100px;display:block;"> 
+            <div class="rounded" style="position:absolute;top:0px;right:-7px;border:10px solid rgb(174,230,1);background-color:#FFF;height:90px;width:728px;"> 
+            
+<!--<script type="text/javascript">
+  GA_googleFillSlot("728x90DDComicPageTop");
+</script>--> 
+	<!-- AD TAG BEGINS: DrunkDuck(gr.drunkduck) / ros_atf / 728x90 --> 
+<script type="text/javascript"> 
+	var gr_ads_zone = 'ros_atf';
+	var gr_ads_size = '728x90';
+</script> 
+<script type="text/javascript" src="http://a.giantrealm.com/gr.drunkduck/a.js"> 
+</script> 
+<noscript> 
+	<a href="http://ans.giantrealm.com/click/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890"> 
+		<img src="http://ans.giantrealm.com/img/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890" width="728" height="90" alt="advertisement" /> 
+	</a> 
+</noscript> 
+<!-- AD TAG ENDS: DrunkDuck / ros_atf / 728x90 -->            </div> 
+        </div> 
+        <div class="span-73" id="menu"> 
+                                <div style="float:left;display:inline;background-image:url('{{ MEDIA_URL }}images/search.png');width:154px;height:20px" class="span-16"> 
+              <link type="text/css" rel="stylesheet" href="/css/search.css" /> 
+              <script type="text/javascript" src="{{ MEDIA_URL }}/js/search.js"></script> 
+                <form id="dd-navigation" action="/search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;"> 
+                    <input type="text" id="searchTxt"  autocomplete="off" name="searchTxt" class="searchbox" style="position:absolute;top:0px;left:10px;margin:0;height:20px;border:0px;width:120px;outline:none;" /> 
+                    <input type="image" style="background:none;outline:none;padding:0;border:none;position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" /> 
+                </form> 
+                <div id="search_results"></div> 
+            </div> 
+ 
+                            
+            <!-- menu --> 
+            <a href="http://www.drunkduck.com/search.php">comics</a> 
+            <a href="http://www.drunkduck.com/account/overview/add_comic.php">create</a> 
+            <a href="http://www.drunkduck.com/news.php">news</a> 
+            <a href="http://www.drunkduck.com/tutorials/">tutorials</a> 
+            <!--<a href="#">videos</a>--> 
+            <a href="http://www.drunkduck.com/community">forums</a> 
+            <a href="http://store.drunkduck.com">store</a> 
+            
+                    </div> 
+    </div> 
+    
+    <div class="span-96" style="height:10px;"></div>
