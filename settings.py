@@ -15,7 +15,7 @@ hostname = socket.gethostname()
 host_dir_map = {
     'Lawrence-Leachs-Mac-Pro.local': 'drunkduck.',      # Lawrence
     'mark-desktop': '',                                 # Mark
-    'Administrators-iMac-3.local': 'quackcast',         # Dan
+    'Administrators-iMac-3.local': 'quackcast.',         # Dan
     'server': '',                                       # Mr. Server
 }
 
@@ -39,7 +39,7 @@ db_map = {
     'Administrators-iMac-3.local': {
         'default': {
             'ENGINE': 'sqlite3',
-            'NAME': 'monkey.db'
+            'NAME': 'dev.db'
         }
     },
     # Server

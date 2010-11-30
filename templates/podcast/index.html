@@ -80,7 +80,20 @@
             
             <ul>
             {% for podcast in latest_podcasts %}
-                <li><a href="/podcasts/{{ podcast.id }}/">{{ podcast.title }}</a></li>
+                <li>
+                  <a href="/podcasts/{{ podcast.id }}/">{{ podcast.title }}</a>
+                  <br />
+                  <p id="audioplayer_{{ podcast.id }}">loading...</p>  
+                  <script type="text/javascript">  
+                  $(document).ready(function(){
+                    AudioPlayer.embed("audioplayer_{{ podcast.id }}", {  
+                      soundFile: "{{ podcast.path }}",  
+                      titles: "{{ podcast.title }}",  
+                      // artists: "Add Artists here",  
+                    });  
+                  });
+</script> 
+                </li>
             {% endfor %}
             </ul>
         {% else %}

@@ -64,6 +64,19 @@ border:5px solid rgb(69,180,185);
 <link rel="stylesheet" href="{{ MEDIA_URL }}css/custom.css" type="text/css" media="screen, projection, print"> 
 <link href='{{ MEDIA_URL }}css/layout.css' rel='stylesheet' type="text/css"> 
 <link href='{{ MEDIA_URL }}css/global.css' rel='stylesheet' type="text/css"> 
+
+<!-- AUDIO PLAYER SETUP -->
+<script type="text/javascript" src="{{ MEDIA_URL }}js/audioplayer/audio-player.js"></script>  
+<script type="text/javascript">  
+$(document).ready(function(){
+  AudioPlayer.setup("{{ MEDIA_URL }}js/audioplayer/player.swf", {
+    width: 400, 
+    bg: 'FF9999',
+    autostart: "no"
+  });  
+});
+</script>  
+
 <script type="text/javascript"> 
 $(document).ready(function(){
   $('.tooltip').live('mouseenter', function(){
