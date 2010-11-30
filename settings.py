@@ -1,18 +1,71 @@
 # Django settings for drunkduck project.
-import os.path
+import os
 import socket
-PROJECT_DIR = os.path.dirname(__file__)
-    
-host = socket.gethostname()
-host_dir_map = {'Lawrence-Leachs-Mac-Pro.local': 'drunkduck.',
-                'Administrators-iMac-3.local': 'quackcast.',
-                'server': ''
-                }
-# ALTER THE SERVERNAME NAME TO BE CORRECT FOR THE SERVER VARIABLE ABOVE
-
+PROJECT_DIR = os.getcwd()
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+
+hostname = socket.gethostname()
+
+
+# format example:
+# 'your local hostname': 'your package prefix ending with a dot character'
+host_dir_map = {
+    'Lawrence-Leachs-Mac-Pro.local': 'drunkduck.',      # Lawrence
+    'mark-desktop': '',                                 # Mark
+    'Administrators-iMac-3.local': 'quackcast',         # Dan
+    'server': '',                                       # Mr. Server
+}
+
+
+db_map = {
+    # Lawrence
+    'Lawrence-Leachs-Mac-Pro.local': {
+        'default': {
+            'ENGINE': 'sqlite3',
+            'NAME': 'dev.db',
+        }
+    },
+    # Mark
+    'mark-desktop': {
+        'default': {
+            'ENGINE': 'sqlite3',
+            'NAME': 'mark_dev.db',
+        }
+    },
+    # Dan
+    'Administrators-iMac-3.local': {
+        'default': {
+            'ENGINE': 'sqlite3',
+            'NAME': 'monkey.db'
+        }
+    },
+    # Server
+    'server': {
+        'default': {
+            'ENGINE': 'mysql',
+            'NAME': 'drunkduck_podcast',
+            'USER': 'drunkduck',
+            'PASSWORD': '',
+            'HOST': '173.203.196.9',
+            'PORT': ''
+        }
+    },
+# Uncomment the lines below to add another definition map.
+#    '<YOUR_LOCAL_HOST_NAME>': {
+#        'default': {
+#            'ENGINE': '',      # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3', or 'oracle'.
+#            'NAME': '',        # Or path to database file if using sqlite3
+#            'USER': '',        # Not used with sqlite3
+#            'PASSWORD': '',    # Not used with sqlite3
+#            'HOST': '',        # Set to empty string for localhost. Not used with sqlite3.
+#            'PORT': ''         # Set to empty string for default. Not used with sqlite3.
+#        }
+#    },
+}
+
 
 ADMINS = (
     ('Lawrence Leach', 'lleach@wowio.com'),
@@ -20,29 +73,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if host in ['Lawrence-Leachs-Mac-Pro.local', 'Administrators-iMac-3.local']:
-    DATABASES = {
-       'default': {
-           'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-           'NAME': 'dev.db',                      # Or path to database file if using sqlite3.
-           'USER': '',                      # Not used with sqlite3.
-           'PASSWORD': '',                  # Not used with sqlite3.
-           'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-           'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        }
-    }
-#    MEDIA_ROOT = '/Users/zeus/Sites/django/drunkduck/media/'
-else:
-    DATABASES = {
-       'default': {
-           'ENGINE': 'mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-           'NAME': 'drunkduck_podcast',                      # Or path to database file if using sqlite3.
-           'USER': 'drunkduck',                      # Not used with sqlite3.
-           'PASSWORD': '',                  # Not used with sqlite3.
-           'HOST': '173.203.196.9',                      # Set to empty string for localhost. Not used with sqlite3.
-           'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        }
-    }
+
+DATABASES = db_map[hostname]
 
 
 # Local time zone for this installation. Choices can be found here:
@@ -103,11 +135,7 @@ MIDDLEWARE_CLASSES = (
     'pagination.middleware.PaginationMiddleware',
 )
 
-#if socket.gethostname() == 'Lawrence-Leachs-Mac-Pro.local':
-#    ROOT_URLCONF = 'drunkduck.urls'
-#else:
-#    ROOT_URLCONF = 'urls'	
-ROOT_URLCONF = host_dir_map[host] + 'urls'
+ROOT_URLCONF = host_dir_map[hostname] + 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -127,15 +155,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'pagination',
     'tagging',
-    'tagging_autocomplete',
-    host_dir_map[host] + 'podcast'
+    'tagging_autocomplete',    
+    host_dir_map[hostname] + 'podcast'
 )
-#if socket.gethostname() == 'Lawrence-Leachs-Mac-Pro.local':
-#    INSTALLED_APPS += (
-#        'drunkduck.podcast',
-#    )
-#else:
-#    INSTALLED_APPS += (
-#        'podcast',
-#    )
-
