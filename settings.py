@@ -15,7 +15,7 @@ hostname = socket.gethostname()
 host_dir_map = {
     'Lawrence-Leachs-Mac-Pro.local': 'drunkduck.',      # Lawrence
     'mark-desktop': '',                                 # Mark
-    'Administrators-iMac-3.local': 'quackcast.',         # Dan
+    'Administrators-iMac-3.local': 'quackcast.',        # Dan
     'server': '',                                       # Mr. Server
 }
 

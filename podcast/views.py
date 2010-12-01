@@ -12,11 +12,13 @@ from podcast.models import *
 
 def home_page(request):
 
-  latest_podcasts = Podcast.objects.select_related().order_by('-pub_date').filter(isactive=1)[:5]
-  variables = RequestContext(request, {
-    'latest_podcasts':latest_podcasts,
-  })
-  return render_to_response('podcast/index.html', variables)
+    latest_podcasts = Podcast.objects.select_related().order_by('-pub_date').filter(isactive=1)[:5]
+    variables = RequestContext(request, {
+        'latest_podcasts':latest_podcasts,
+    })
+    
+    #return render_to_response('podcast/index.html', variables)
+    return render_to_response('podcast/index_oldmod.html', variables)
     
 def detail(request, slug):
     try:
