@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+<title>Drunk Duck</title> 
+<!-- BLUEPRINT --> 
+<link rel="stylesheet" href="/media/css/blueprint/screen.css" type="text/css" media="screen, projection"> 
+<link rel="stylesheet" href="/media/css/blueprint/gutterless.css" type="text/css" media="screen, projection"> 
+<link rel="stylesheet" href="/media/css/blueprint/print.css" type="text/css" media="print">    
+<!--[if IE]><link rel="stylesheet" href="/media/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+<style> 
+body {    
+    background-color:rgb(9,153,68);
+    background-image:url('/media/images/bg-bubbles.jpg'); 
+    background-repeat:no-repeat;
+    background-position:center top;
+    background: #252525;
+    background: #f0f0f0;
+}
+    
+ .tooltip {
+      z-index:9999999;
+     background-color:#fff;
+      border: 2px solid #999;
+      color:#000;
+      max-width:300px;
+      -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border:5px solid rgb(69,180,185);
+  padding:10px;
+ }
+ 
+ .tooltip img {
+  position:absolute;
+  top:-14px;
+  margin-left:50%;
+  left:-12px;
+  
+ }
+</style> 
+<!-- JQUERY --> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery-1.4.2.min.js"></script> 
+ 
+<!-- JQUERY TOOLS (JQUERY) --> 
+<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js"></script> 
+ 
+<!-- JQUERY UI (JQUERY) --> 
+<link href="{{ MEDIA_URL }}css/jquery/start/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" /> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery-ui-1.8.5.custom.min.js"></script> 
+ 
+<!-- CYCLE (JQUERY) --> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/cycle/jquery.cycle.all.js"></script> 
+ 
+<!-- HTML AREA (JQUERY, JQUERY UI) --> 
+<link rel="Stylesheet" type="text/css" href="{{ MEDIA_URL }}js/jquery/jhtmlarea/jHtmlArea.css" /> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jhtmlarea/jHtmlArea-0.7.0.min.js"></script> 
+ 
+<!-- JQUERY FORM (JQUERY) --> 
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/form.js"></script> 
+ 
+<!-- GOOGLE FONT --> 
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css" /> 
+ 
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/custom_mod.css" type="text/css" media="screen, projection, print"> 
+<link href='{{ MEDIA_URL }}css/layout_mod.css' rel='stylesheet' type="text/css"> 
+<link href='{{ MEDIA_URL }}css/global.css' rel='stylesheet' type="text/css"> 
+
+<style>
+body{
+    margin-top: 0;
+}
+.container{
+    background: #f0f0f0;
+}
+.fake_link a, .fake_nav_link a{
+    font-size: 14px;
+    font-weight: bold;
+    color: #40404f;
+    margin: 0px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+</style>
+
+<!-- AUDIO PLAYER SETUP -->
+<script type="text/javascript" src="{{ MEDIA_URL }}js/audioplayer/audio-player.js"></script>  
+<script type="text/javascript">  
+$(document).ready(function(){
+  AudioPlayer.setup("{{ MEDIA_URL }}js/audioplayer/player.swf", {
+    width: 400, 
+    bg: 'FF9999',
+    autostart: "no"
+  });  
+});
+</script>  
+
+<script type="text/javascript"> 
+$(document).ready(function(){
+  $('.tooltip').live('mouseenter', function(){
+    $(this).hide(); 
+  });
+  $('*[title]').tooltip({
+    position: "bottom center"
+  });
+});
+</script> 
+ 
+</head> 
+<body> 
+ 
+ 
+<div class="container"> 
+    <div class="span-96 green" style="position:relative;padding-top:10px; padding-top: 0; width: 1024px; height: 90px;"> 
+                <div class="span-23" style="height:90px"> 
+<div>
+            <a href="/" style="display:block;background-image:url('http://images.drunkduck.com/site_gfx_new_v3/header_logo_top.gif');background-repeat:no-repeat;width: 296px; height: 90px;position:relative;z-index:5;"> 
+                
+            </a> 
+</div>
+<div style="display: none;">
+<table width="1024">
+ <tr>
+      <td width="296" height="21"><a href="http://www.drunkduck.com"><img src="http://images.drunkduck.com/site_gfx_new_v3/header_logo_bottom.gif" border="0"></a></td>
+      <td width="100%" height="21" background="http://images.drunkduck.com/site_gfx_new_v3/header_nav_bg.gif" align="left">
+        <table border="0" cellpadding="0" cellspacing="0" height="21">
+          <tr>
+
+            <form action="http://www.drunkduck.com/search.php" name="searchform" method="GET">
+            <td align="center">
+              <div style="width:100px;height:21px;background:url(http://images.drunkduck.com/site_gfx_new_v3/search_bg.gif);">
+                <input name="searchTxt" type="text" value="Search!" onclick="this.value='';" style="border:0px;width:80px;height:18px;font-size:14px;text-align:center;"/>
+              </div>
+            </td>
+            <input type="hidden" name="advanced" value="0">
+                        </form>
+            <td align="center">
+
+              <div class="fake_nav_link" id="header_nav"><a href="http://www.drunkduck.com/search.php">Browse</a></div>
+            </td>
+            <td align="center">
+              <div class="fake_link" id="header_nav"><a href="http://www.drunkduck.com/tutorials/">Tutorials</a></div>
+            </td>
+            <td align="center">
+              <div class="fake_link" id="header_nav"><a href="http://www.drunkduck.com/games/">Games</a></div>
+
+            </td>
+            <td align="center">
+              <div class="fake_link" id="header_nav"><a href="http://www.drunkduck.com/news/">News</a></div>
+            </td>
+            <td align="center">
+              <div class="fake_link" id="header_nav"><a href="http://www.drunkduck.com/community/">Forums</a></div>
+            </td>
+            <td align="center">
+
+              <div class="fake_link" id="header_nav"><a href="http://store.drunkduck.com/">Store</a></div>
+            </td>
+            <td align="center" width="100%">
+              <div class="fake_link" id="header_nav"><a href="http://www.wowiotv.com" target="new">WOWIOTV</a></div>
+            </td>
+          </tr>
+        </table>
+    </td>
+</tr>
+</table>
+
+</div>
+            
+        </div> 
+        <div style="position:relative;height:100px;display:block; width: 1024px;"> 
+            <div class="rounded" style="position:relative; margin-left: 296px;"> 
+            
+<!--<script type="text/javascript">
+  GA_googleFillSlot("728x90DDComicPageTop");
+</script>--> 
+	<!-- AD TAG BEGINS: DrunkDuck(gr.drunkduck) / ros_atf / 728x90 --> 
+<script type="text/javascript"> 
+	var gr_ads_zone = 'ros_atf';
+	var gr_ads_size = '728x90';
+</script> 
+<script type="text/javascript" src="http://a.giantrealm.com/gr.drunkduck/a.js"> 
+</script> 
+<noscript> 
+	<a href="http://ans.giantrealm.com/click/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890"> 
+		<img src="http://ans.giantrealm.com/img/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890" width="728" height="90" alt="advertisement" /> 
+	</a> 
+</noscript> 
+<!-- AD TAG ENDS: DrunkDuck / ros_atf / 728x90 -->            </div> 
+        </div> 
+    </div> 
+    
+    <div class="span-96" style="height:10px; width: 1024px; margin-bottom: 20px; height: 21px;">
+
+<div>
+<img src="http://images.drunkduck.com/site_gfx_new_v3/header_logo_bottom.gif" border="0" style="display: inline-block; margin-right: 0;" /><span style="display: inline-block;background: url('http://images.drunkduck.com/site_gfx_new_v3/header_nav_bg.gif');height: 21px; width: 728px; vertical-align: top; margin-left: 0;">
+
+            <form action="http://www.drunkduck.com/search.php" name="searchform" method="GET" style="display: inline-block;">
+              <span style="display: inline-block;width:100px;height:21px;background:url(http://images.drunkduck.com/site_gfx_new_v3/search_bg.gif);">
+                <input name="searchTxt" type="text" value="Search!" onclick="this.value='';" style="border:0px;width:80px;height:18px;font-size:14px;text-align:center; margin-left: 10px;"/>
+              </span>
+            <input type="hidden" name="advanced" value="0">
+                        </form>
+              <span class="fake_nav_link" id="header_nav"><a href="http://www.drunkduck.com/search.php">Browse</a></span>
+              <span class="fake_link" id="header_nav"><a href="http://www.drunkduck.com/tutorials/">Tutorials</a></span>
+              <span class="fake_link" id="header_nav"><a href="http://www.drunkduck.com/games/">Games</a></span>
+
+              <span class="fake_link" id="header_nav"><a href="http://www.drunkduck.com/news/">News</a></span>
+              <span class="fake_link" id="header_nav"><a href="http://www.drunkduck.com/community/">Forums</a></span>
+
+              <span class="fake_link" id="header_nav"><a href="http://store.drunkduck.com/">Store</a></span>
+              <span class="fake_link" id="header_nav"><a href="http://www.wowiotv.com" target="new">WOWIOTV</a></span>
+</span>
+</div>
+    </div>
