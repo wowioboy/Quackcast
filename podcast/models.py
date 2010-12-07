@@ -6,6 +6,7 @@ from tagging.fields import TagField
 from tagging.models import Tag
 from tagging_autocomplete.models import TagAutocompleteField
 from podcast.fields import ThumbnailImageField
+from django.template.defaultfilters import slugify, truncatewords
 
 class LiveManager(models.Manager):
     def get_query_set(self):
@@ -50,6 +51,10 @@ class Podcast(models.Model):
     def get_absolute_url(self):
         return "/%s/%s/" %(self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
 
+    def save(self):
+        self.slug = slugify(self.title[:50])
+        super(Podcast, self).save()
+
 class Likes(models.Model):
     podcast = models.ForeignKey(Podcast)
     count = models.IntegerField()
@@ -63,5 +68,3 @@ class Thumbs(models.Model):
     class Meta:
         verbose_name = "Thumbnail"
         verbose_name_plural = "Thumbnail Images"
-
-            
