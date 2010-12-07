@@ -48,7 +48,7 @@
       </form>
   </div>
 {% if podcasts %}
-  {% autopaginate podcasts 7 %}
+  {% autopaginate podcasts 4 %}
   {% for podcast in podcasts %}
     {% include "podcast/podcast.html" %}
   {% endfor %}

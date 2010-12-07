@@ -35,7 +35,7 @@ class Podcast(models.Model):
 
     class Meta:
         ordering = ['title']
-        verbose_name = "Shows"
+        verbose_name = "Show"
         verbose_name_plural = "Shows"
 
     def __unicode__(self):
