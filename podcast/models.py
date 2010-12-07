@@ -28,8 +28,10 @@ class Podcast(models.Model):
         blank=True,
         null=True
     )
+
+    objects = models.Manager()  # Declare this manager first to use default manager for admin
     live = LiveManager()
-    objects = models.Manager()
+
     class Meta:
         ordering = ['title']
         verbose_name = "Shows"
