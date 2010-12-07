@@ -1,28 +1,35 @@
-from django.core.exceptions import ObjectDoesNotExist
-from django.utils import encoding
-from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import RequestContext
-from django.template.loader import get_template
-from django.shortcuts import render_to_response
-from django.template import Context, loader
-from django.http import Http404
+from django.shortcuts import render_to_response, get_object_or_404
+
 from podcast.models import *
 
 # Create your views here.
 
 def home_page(request):
 
-    latest_podcasts = Podcast.objects.select_related().order_by('-pub_date').filter(isactive=1)[:5]
+    search = False
+    date = False
+    podcasts = Podcast.live.all()
+    
+    if 'search' in request.GET:
+        search = request.GET['search'].strip()
+        if search != 'search quackcasts':
+            podcasts = podcasts.filter(title__icontains=search) | podcasts.filter(detail__icontains=search) | podcasts.filter(leadin__icontains=search)
+    
+    if 'date' in request.GET:
+        date = request.GET['date']
+        podcasts = podcasts.filter(pub_date__icontains=date)
+        
     variables = RequestContext(request, {
-        'latest_podcasts':latest_podcasts,
+        'podcasts':podcasts,
+        'search': search,
+        'date': date
     })
     
     #return render_to_response('podcast/index.html', variables)
     return render_to_response('podcast/index_oldmod.html', variables)
     
 def detail(request, slug):
-    try:
-        p = Podcast.objects.get(slug=slug)
-    except Podcast.DoesNotExist:
-        raise Http404
+    
+    p = get_object_or_404(Podcast, slug=slug)
     return render_to_response('podcast/detail.html', {'podcast': p})    

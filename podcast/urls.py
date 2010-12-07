@@ -12,11 +12,13 @@ data_dict = {
 	'date_field': 'pub_date',
 }
 
-urlpatterns = patterns('django.views.generic.date_based',
-    (r'(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'object_detail', dict(data_dict, template_name='podcast/detail.html')),
-    (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'object_detail', dict(data_dict, template_name='podcast/detail.html')),
-    (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$','archive_day',dict(data_dict,template_name='podcast/index.html')),
-    (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$','archive_month', dict(data_dict, template_name='podcast/index.html')),
-    (r'^(?P<year>\d{4})/$','archive_year', dict(data_dict, template_name='podcast/index.html')),
-    (r'^$',home_page),
+urlpatterns = patterns(
+	(r'^(?P<slug>[-\w]+)/$', detail),
+#	'django.views.generic.date_based',
+#    (r'(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'object_detail', dict(data_dict, template_name='podcast/detail.html')),
+#    (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'object_detail', dict(data_dict, template_name='podcast/detail.html')),
+#    (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$','archive_day',dict(data_dict,template_name='podcast/index.html')),
+#    (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$','archive_month', dict(data_dict, template_name='podcast/index.html')),
+#    (r'^(?P<year>\d{4})/$','archive_year', dict(data_dict, template_name='podcast/index.html')),
+#    (r'^$',home_page),
 )

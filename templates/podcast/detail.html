@@ -1,21 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="rounded canary span-63 box-1 pull-1">
-    <div class="span-63 dark-green rounded header">
-        Quackcast
-    </div>
-    <div class="span-64 box-1 header-menu">
-          <button class="quackcast_button rounded right button" direction="next">next</button>
-    </div>
-
-
-    <div class="yellow rounded span-62 box-1">
-        <h1>{{ podcast.title }}</h1>
-        <ul>
-        {% for choice in poll.choice_set.all %}
-            <li>{{ choice.choice }}</li>
-        {% endfor %}
-        </ul>
-    </div>
-</div>    
+<div class="span-71">
+  <h1>The QuackCast!</h1>
+  <div class="span-70 box-1" style="background:#d4d4d4;height:20px;margin-bottom:20px;"></div>
+  {% include "podcast/podcast.html" %}
+</div>
+{% endblock %}

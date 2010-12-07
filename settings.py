@@ -144,6 +144,12 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.request",
+    "django.core.context_processors.media"
+)
+
 TAGGING_AUTOCOMPLETE_JS_BASE_URL = '/media/js'
 
 INSTALLED_APPS = (

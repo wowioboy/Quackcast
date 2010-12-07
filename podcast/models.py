@@ -7,6 +7,10 @@ from tagging.models import Tag
 from tagging_autocomplete.models import TagAutocompleteField
 from podcast.fields import ThumbnailImageField
 
+class LiveManager(models.Manager):
+    def get_query_set(self):
+        return super(LiveManager, self).get_query_set().filter(isactive=True).order_by('-pub_date')
+
 class Podcast(models.Model):
     isactive = models.BooleanField('Is Active On Site?',default=False)
     title = models.CharField("Show Title",max_length=200)
@@ -24,6 +28,8 @@ class Podcast(models.Model):
         blank=True,
         null=True
     )
+    live = LiveManager()
+    objects = models.Manager()
     class Meta:
         ordering = ['title']
         verbose_name = "Shows"

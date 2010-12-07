@@ -20,5 +20,5 @@ urlpatterns = patterns('',
     
     # views
     (r'^$', home_page),
-    (r'^podcast/', include('podcast.urls')),
+    (r'^podcast/(?P<slug>[-\w]+)', detail),
 )
