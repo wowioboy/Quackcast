@@ -13,12 +13,12 @@ class LiveManager(models.Manager):
         return super(LiveManager, self).get_query_set().filter(isactive=True).order_by('-pub_date')
 
 class Podcast(models.Model):
-    isactive = models.BooleanField('Is Active On Site?',default=False)
+    isactive = models.BooleanField('Is Live?',default=False)
     title = models.CharField("Show Title",max_length=200)
-    path = models.CharField(max_length=200,blank=True,null=True)
-    leadin = models.TextField("Lead-in Copy",blank=True,null=True)
-    detail = models.TextField("Detail Copy",blank=True,null=True)
-    pub_date = models.DateTimeField('Published Date',blank=True,null=True)
+    path = models.CharField("mp3 url",max_length=200,blank=True,null=True)
+    leadin = models.TextField("Short Summary",blank=True,null=True)
+    detail = models.TextField("Show Notes",blank=True,null=True)
+    pub_date = models.DateField('Published Date',blank=True,null=True)
     url = models.URLField("CDN URL (Internal Use)", max_length=200,blank=True,null=True)
     url_itunes = models.URLField("iTunes URL",max_length=200,blank=True,null=True)
     show_file = models.FileField(upload_to="audio",blank=True,null=True)
