@@ -16,7 +16,7 @@ host_dir_map = {
     'Lawrence-Leachs-Mac-Pro.local': 'drunkduck.',      # Lawrence
     'mark-desktop': '',                                 # Mark
     'Administrators-iMac-3.local': 'quackcast.',        # Dan
-    'server': '',                                       # Mr. Server
+    'ip-97-74-195-2.ip.secureserver.net': '',                                       # Mr. Server
 }
 
 
@@ -43,14 +43,17 @@ db_map = {
         }
     },
     # Server
-    'server': {
+    'ip-97-74-195-2.ip.secureserver.net': {
         'default': {
             'ENGINE': 'mysql',
             'NAME': 'drunkduck_podcast',
             'USER': 'drunkduck',
-            'PASSWORD': '',
+            'PASSWORD': 'G00dduck.10',
             'HOST': '173.203.196.9',
-            'PORT': ''
+            'PORT': '',
+            'OPTIONS': {
+                'init_command': 'SET storage_engine=INNODB',
+            }
         }
     },
 # Uncomment the lines below to add another definition map.
