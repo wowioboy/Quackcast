@@ -26,9 +26,9 @@
 </style>
 <div class="span-71">
   <h1>The QuackCast!</h1>
-  <div class="span-70 box-1" style="background:#d4d4d4;height:20px;margin-bottom:20px;text-align:center;">
-    <a style="float:left;" href="/">QuackCast Home</a>
-      <form id="search_form" method="GET" style="left:129px;position:relative;top:-3px;width:379px;">
+  <div class="span-70 box-1" style="background:#d4d4d4;margin-bottom:20px;text-align: left;">
+    <a style="vertical-align: middle;" href="/">QuackCast Home</a>
+      <form id="search_form" method="GET" style="display: inline-block; margin-left: 20px; vertical-align: middle;">
       <select id="search_date" name="date">
         <option value="">select month</option>
         <option value="2010-12" {% if date == '2010-12' %}selected{% endif %}>Dec 2010</option>
@@ -47,7 +47,7 @@
       <input id="search_text" name="search" value="{% if search %}{{ search }}{% endif %}" />
       <input type="submit" value="go" />
       </form>
-      <a style="float:right;position:relative;top:-34px;" title="RSS" href="http://drunkduck.libsyn.com/rss"><img src="/media/images/rss-badge.png" /></a>
+      <a style="float:right;" title="RSS" href="http://drunkduck.libsyn.com/rss"><img src="/media/images/rss-badge.png" /></a>
   </div>
 {% if podcasts %}
   {% autopaginate podcasts 8 %}
