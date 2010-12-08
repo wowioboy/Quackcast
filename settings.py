@@ -38,8 +38,15 @@ db_map = {
     # Dan
     'Administrators-iMac-3.local': {
         'default': {
-            'ENGINE': 'sqlite3',
-            'NAME': 'dev.db'
+            'ENGINE': 'mysql',
+            'NAME': 'drunkduck_podcast',
+            'USER': 'dd_podcast',
+            'PASSWORD': 'G00dduck.10',
+            'HOST': '97.74.200.99',
+            'PORT': '',
+            'OPTIONS': {
+                'init_command': 'SET storage_engine=INNODB',
+            }
         }
     },
     # Server
@@ -47,9 +54,9 @@ db_map = {
         'default': {
             'ENGINE': 'mysql',
             'NAME': 'drunkduck_podcast',
-            'USER': 'drunkduck',
+            'USER': 'dd_podcast',
             'PASSWORD': 'G00dduck.10',
-            'HOST': '173.203.196.9',
+            'HOST': '97.74.200.99',
             'PORT': '',
             'OPTIONS': {
                 'init_command': 'SET storage_engine=INNODB',
