@@ -52,15 +52,12 @@ db_map = {
     # Server
     'ip-97-74-195-2.ip.secureserver.net': {
         'default': {
-            'ENGINE': 'mysql',
+            'ENGINE': 'postgresql_psycopg2',
             'NAME': 'drunkduck_podcast',
             'USER': 'dd_podcast',
             'PASSWORD': 'G00dduck.10',
-            'HOST': '97.74.200.99',
-            'PORT': '',
-            'OPTIONS': {
-                'init_command': 'SET storage_engine=INNODB',
-            }
+            'HOST': '',
+            'PORT': '5432',
         }
     },
 # Uncomment the lines below to add another definition map.
