@@ -34,18 +34,10 @@
         <option value="2010-12" {% if date == '2010-12' %}selected{% endif %}>Dec 2010</option>
         <option value="2010-11" {% if date == '2010-11' %}selected{% endif %}>Nov 2010</option>
         <option value="2010-10" {% if date == '2010-10' %}selected{% endif %}>Oct 2010</option>
-        <option value="2010-09" {% if date == '2010-09' %}selected{% endif %}>Sep 2010</option>
-        <option value="2010-08" {% if date == '2010-08' %}selected{% endif %}>Aug 2010</option>
-        <option value="2010-07" {% if date == '2010-07' %}selected{% endif %}>Jul 2010</option>
-        <option value="2010-06" {% if date == '2010-06' %}selected{% endif %}>Jun 2010</option>
-        <option value="2010-05" {% if date == '2010-05' %}selected{% endif %}>May 2010</option>
-        <option value="2010-04" {% if date == '2010-04' %}selected{% endif %}>Apr 2010</option>
-        <option value="2010-03" {% if date == '2010-03' %}selected{% endif %}>Mar 2010</option>
-        <option value="2010-02" {% if date == '2010-02' %}selected{% endif %}>Feb 2010</option>
-        <option value="2010-01" {% if date == '2010-01' %}selected{% endif %}>Jan 2010</option>
       </select>
       <input id="search_text" name="search" value="{% if search %}{{ search }}{% endif %}" />
       <input type="submit" value="go" />
+      <input type="reset" value="reset" onclick="window.location='/';" />
       </form>
       <a style="float:right;" title="RSS" href="http://drunkduck.libsyn.com/rss"><img src="/media/images/rss-badge.png" /></a>
   </div>

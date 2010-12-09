@@ -8,3 +8,4 @@ media/audio/**/*
 .project
 .pydevproject
 src/
+build/
