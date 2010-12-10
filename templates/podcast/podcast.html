@@ -1,8 +1,8 @@
-<div class="span-65 box-1 push-2" style="background:#999; overflow: auto;">
-  <span class="span-12" style="text-align:center; float: left;display: inline-block;"><img src="/media/images/quackcast-logo-sm.png" /></span>
-  <div class="span-52" style="display: inline-block; overflow: auto;">
+<div class="span-65 box-1 push-2" style="background:#999;{%if forloop.counter > 1 %}cursor:pointer;cursor:hand;{% endif %}" {%if forloop.counter > 1 %}onclick="window.location='/podcast/{{ podcast.slug }}'"{% endif %}>
+  <div class="span-12" style="text-align:center;"><img src="/media/images/quackcast-logo-sm.png" /></div>
+  <div class="span-52">
     <div class="span-52">
-      <h2 style="margin:0; color: #fff;"><a href="/podcast/{{ podcast.slug }}" style="display: inline; width: 520px; color: #fff;">{{ podcast.title }}</a></h2>
+      <h2 style="margin:0;">{{ podcast.title }}</h2>
       <h4 style="color:#fff;margin:0;">{{ podcast.pub_date|date:"M j, Y" }}</h4>
       <p>{{ podcast.leadin }}</p>
     </div>
@@ -32,4 +32,4 @@
     </div>
     {% endif %}
   </div>
-</div>
+</div>    
